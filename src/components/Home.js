@@ -3,6 +3,8 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import homeStyles from "../css/Home.module.css";
 import Card from "./Card";
+import { Provider } from "react-redux";
+import store from "../redux/store";
 
 
 function Home() {
@@ -10,8 +12,8 @@ function Home() {
 
   return (
     <>
-      <div className="container">
-        <div className="p-4">
+      <div className={homeStyles.container} >
+        <div className={homeStyles.p-4}>
           <div>
             <h1 className={homeStyles.primary}>Cricket Mania</h1>
           </div>
