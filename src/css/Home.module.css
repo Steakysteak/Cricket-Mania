@@ -22,3 +22,8 @@
 .row > div[class*='col-'] {
     display: flex;
 }
+
+.navbar {
+    position: "sticky";
+    top: 0;
+}

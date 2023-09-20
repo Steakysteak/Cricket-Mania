@@ -1,28 +1,27 @@
 import data from "../list.json";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import homeStyles from "../css/Home.module.css";
 import Card from "./Card";
 import { Provider } from "react-redux";
 import store from "../redux/store";
 
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import Menu from "@mui/material/Menu";
+import MenuIcon from "@mui/icons-material/Menu";
+import Container from "@mui/material/Container";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import Tooltip from "@mui/material/Tooltip";
+import MenuItem from "@mui/material/MenuItem";
+import AdbIcon from "@mui/icons-material/Adb";
 
-const pages = ['[Products]', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
-
+const pages = ["[Products]", "Login", "Signup"];
+const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function Home() {
   const navigate = useNavigate();
@@ -47,7 +46,7 @@ function Home() {
 
   return (
     <>
-      <>
+      <div className={homeStyles.navbar}>
         <AppBar position="static">
           <Container maxWidth="xl">
             <Toolbar disableGutters>
@@ -58,7 +57,7 @@ function Home() {
                 href="/"
                 sx={{
                   mr: 2,
-                  display: { xs: "none", md: "flex" },
+                  display: { xs: "flex" },
                   fontFamily: "monospace",
                   fontWeight: 700,
                   letterSpacing: ".3rem",
@@ -105,7 +104,7 @@ function Home() {
                   ))}
                 </Menu>
               </Box>
-              <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+              <AdbIcon sx={{ display: { xs: "none" }, mr: 1 }} />
               <Typography
                 variant="h5"
                 noWrap
@@ -113,7 +112,7 @@ function Home() {
                 href=""
                 sx={{
                   mr: 2,
-                  display: { xs: "flex", md: "none" },
+                  display: { xs:"none" },
                   flexGrow: 1,
                   fontFamily: "monospace",
                   fontWeight: 700,
@@ -128,14 +127,15 @@ function Home() {
                 {pages.map((page) => (
                   <Button
                     key={page}
-                    onClick={handleCloseNavMenu}
+                    onClick={() => {
+                      navigate(`/${page}`);
+                    }}
                     sx={{ my: 2, color: "white", display: "block" }}
                   >
                     {page}
                   </Button>
                 ))}
               </Box>
-
               <Box sx={{ flexGrow: 0 }}>
                 <Tooltip title="Open settings">
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -171,21 +171,21 @@ function Home() {
             </Toolbar>
           </Container>
         </AppBar>
-      </>
+      </div>
       <div className={homeStyles.container}>
-        <div className={homeStyles.p - 4}>
-          <div>
+        {/* <div> */}
+          {/* <div>
             <h1 className={homeStyles.primary}>Cricket Mania</h1>
-          </div>
+          </div> */}
 
-          <div>
+          {/* <div>
             <p className={homeStyles.para}>
               Interesting Facts " Rohit Sharma and Shane Watson are the only two
               players to score a century and claim a hat-trick in the IPL."
             </p>
-          </div>
+          </div> */}
 
-          <div>
+          {/* <div>
             <button
               className="btn btn-success"
               onClick={() => {
@@ -194,16 +194,16 @@ function Home() {
             >
               Login
             </button>
-          </div>
-          <div>
+          </div> */}
+          {/* <div>
             <button
               className="btn btn-primary"
               onClick={() => navigate("/signup")}
             >
               SignUp
             </button>
-          </div>
-        </div>
+          </div> */}
+        {/* </div> */}
         <div>
           <div className={homeStyles.cardsContainer}>
             {data.map((player) => {

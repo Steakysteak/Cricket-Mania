@@ -6,10 +6,12 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
+import App from "./App";
 import Home from "./components/Home";
 import PlayerDetail from "./components/PlayerDetail";
 import { Provider } from "react-redux";
 import store from "./redux/store";
+import Team from "./components/Team";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -18,6 +20,7 @@ root.render(
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/team" element={<Team />} />
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Signup />} />
           <Route path="/:playerid" element={<PlayerDetail />} />

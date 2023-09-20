@@ -21,7 +21,7 @@ function Card({ image, name, team, id }) {
 
   const addPlayer = () => {};
   return (
-    <div style={{ margin: "auto" }} onClick={() => modalClickHandler()}>
+    <div style={{ margin: "20px" }} onClick={() => modalClickHandler()}>
       <div className={cardStyles.card}>
         <img src={image} alt="Avatar" className={cardStyles.im} />
         <div className={cardStyles.container}>
@@ -39,19 +39,24 @@ function Card({ image, name, team, id }) {
         <div className={cardStyles.modal}>
           <div className={cardStyles.modalContent}>
             <h6>Modal</h6>
-            {t}
             <div>
               Player Name: <p>{name}</p>
             </div>
             <div>
               <button
-                className="btn btn-info"
+                className="btn btn-info mr-auto"
                 onClick={() => dispatch(add({ image, name, team, id }))}
               >
                 Add Player to Team
               </button>
               <button
-                className="btn btn-info"
+              className="btn btn-primary"
+              onClick={() => dispatch(remove(id))} 
+              >
+                Remove Player from Team 
+              </button>
+              <button
+                className="btn btn-danger"
                 onClick={() => modalClickHandler()}
               >
                 Close
